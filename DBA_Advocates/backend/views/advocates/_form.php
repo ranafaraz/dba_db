@@ -27,10 +27,14 @@ use dosamigos\datepicker\DatePicker;
         </div>
         <div class="row">
             <div class="col-md-4">
-                <?= $form->field($model, 'adv_Phone_No')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'adv_Phone_No')->widget(yii\widgets\MaskedInput::class, [
+                'mask' => '+99-999-9999999',
+                ]) ?>
             </div>
             <div class="col-md-4">
-                <?= $form->field($model, 'adv_CNIC')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'adv_CNIC')->widget(yii\widgets\MaskedInput::class, [
+                'mask' => '99999-9999999-9',
+                ]) ?>
             </div>
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_SNo')->textInput(['maxlength' => true]) ?>
@@ -52,7 +56,7 @@ use dosamigos\datepicker\DatePicker;
                     //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
                     'clientOptions' => [
                         'autoclose' => true,
-                        'format' => 'yyyy-m-d',
+                        'format' => 'yyyy-m-d'
                     ]
                 ]);?>
             </div>
@@ -67,7 +71,7 @@ use dosamigos\datepicker\DatePicker;
                     //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
                     'clientOptions' => [
                         'autoclose' => true,
-                        'format' => 'yyyy-m-d',
+                        'format' => 'yyyy-m-d'
                     ]
                 ]);?>
             </div>
@@ -80,7 +84,7 @@ use dosamigos\datepicker\DatePicker;
                     //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
                     'clientOptions' => [
                         'autoclose' => true,
-                        'format' => 'yyyy-m-d',
+                        'format' => 'yyyy-m-d'
                     ]
                 ]);?>
             </div>
@@ -103,12 +107,12 @@ use dosamigos\datepicker\DatePicker;
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Photo')->fileInput() ?>
             </div>
-            <div class="col-md-4">
+             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Image_CNIC')->fileInput() ?>
             </div>
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Image_License')->fileInput() ?>
-            </div>  
+            </div> 
         </div> 
         <div class="row">
             <div class="col-md-4">
@@ -137,14 +141,7 @@ use dosamigos\datepicker\DatePicker;
                 <?= Html::submitButton('Add Advocate', ['class' => 'btn btn-success']) ?>        
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                
-            </div>
-        </div>
     </div>
-
-    
 
     <?php ActiveForm::end(); ?>
 
