@@ -8,6 +8,8 @@ use backend\models\AdvocatesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\web\ForbiddenHttpException; 
 
 /**
  * AdvocatesController implements the CRUD actions for Advocates model.
@@ -52,9 +54,13 @@ class AdvocatesController extends Controller
      */
     public function actionView($id)
     {
+        if(Yii::$app->user->can('view-advocate')){
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+        }else{
+            throw new ForbiddenHttpException;
+        }   
     }
 
     /**
@@ -65,14 +71,37 @@ class AdvocatesController extends Controller
     public function actionCreate()
     {
         $model = new Advocates();
+        if(Yii::$app->user->can('create-advocate')){
+            if ($model->load(Yii::$app->request->post())) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->adv_id]);
-        }
+            //get the instance of the upload file
+                $imageName = $model->adv_Name.'_photo';
+                $model->adv_Photo = UploadedFile::getInstance($model,'adv_Photo');
+                $model->adv_Photo->saveAs('uploads/'.$imageName.'.'.$model->adv_Photo->extension);
 
-        return $this->render('create', [
+                $imagename = $model->adv_Name.'_CNIC';
+                $model->adv_Image_CNIC = UploadedFile::getInstance($model,'adv_Image_CNIC');
+                $model->adv_Image_CNIC->saveAs('uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension);
+
+                $image = $model->adv_Name.'_license';
+                $model->adv_Image_License = UploadedFile::getInstance($model,'adv_Image_License');
+                $model->adv_Image_License->saveAs('uploads/'.$image.'.'.$model->adv_Image_License->extension);
+
+                //save the path in the db column
+                $model->adv_Photo = 'uploads/'.$imageName.'.'.$model->adv_Photo->extension;
+                $model->adv_Image_CNIC = 'uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension;
+                $model->adv_Image_License = 'uploads/'.$image.'.'.$model->adv_Image_License->extension;
+            
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->adv_id]);
+            }
+
+            return $this->render('create', [
             'model' => $model,
-        ]);
+            ]);
+        }else{
+            throw new ForbiddenHttpException;
+        }        
     }
 
     /**
@@ -85,14 +114,35 @@ class AdvocatesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if(Yii::$app->user->can('update-advocate')){
+            if ($model->load(Yii::$app->request->post())) {
+            //get the instance of the upload file
+                $imageName = $model->adv_Name.'_photo';
+                $model->adv_Photo = UploadedFile::getInstance($model,'adv_Photo');
+                $model->adv_Photo->saveAs('uploads/'.$imageName.'.'.$model->adv_Photo->extension);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                $imagename = $model->adv_Name.'_CNIC';
+                $model->adv_Image_CNIC = UploadedFile::getInstance($model,'adv_Image_CNIC');
+                $model->adv_Image_CNIC->saveAs('uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension);
+
+                $image = $model->adv_Name.'_license';
+                $model->adv_Image_License = UploadedFile::getInstance($model,'adv_Image_License');
+                $model->adv_Image_License->saveAs('uploads/'.$image.'.'.$model->adv_Image_License->extension);
+
+            //save the path in the db column
+            $model->adv_Photo = 'uploads/'.$imageName.'.'.$model->adv_Photo->extension;
+            $model->adv_Image_CNIC = 'uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension;
+            $model->adv_Image_License = 'uploads/'.$image.'.'.$model->adv_Image_License->extension;
+
+            $model->save();
             return $this->redirect(['view', 'id' => $model->adv_id]);
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);
+        }else{
+            throw new ForbiddenHttpException;
+        }   
     }
 
     /**
@@ -104,9 +154,13 @@ class AdvocatesController extends Controller
      */
     public function actionDelete($id)
     {
+        if(Yii::$app->user->can('delete-advocate')){
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+        }else{
+            throw new ForbiddenHttpException;
+        }   
     }
 
     /**

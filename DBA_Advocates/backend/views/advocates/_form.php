@@ -11,7 +11,7 @@ use dosamigos\datepicker\DatePicker;
 
 <div class="advocates-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
 
     <div class="container">
         <div class="row">
@@ -52,7 +52,7 @@ use dosamigos\datepicker\DatePicker;
                     //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
                     'clientOptions' => [
                         'autoclose' => true,
-                        'format' => 'dd-M-yyyy'
+                        'format' => 'yyyy-m-d',
                     ]
                 ]);?>
             </div>
@@ -67,7 +67,7 @@ use dosamigos\datepicker\DatePicker;
                     //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
                     'clientOptions' => [
                         'autoclose' => true,
-                        'format' => 'dd-M-yyyy'
+                        'format' => 'yyyy-m-d',
                     ]
                 ]);?>
             </div>
@@ -80,7 +80,7 @@ use dosamigos\datepicker\DatePicker;
                     //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
                     'clientOptions' => [
                         'autoclose' => true,
-                        'format' => 'dd-M-yyyy'
+                        'format' => 'yyyy-m-d',
                     ]
                 ]);?>
             </div>
@@ -101,15 +101,15 @@ use dosamigos\datepicker\DatePicker;
         </div>
         <div class="row">
             <div class="col-md-4">
-                <?= $form->field($model, 'adv_Photo')->textInput() ?>
+                <?= $form->field($model, 'adv_Photo')->fileInput() ?>
             </div>
             <div class="col-md-4">
-                <?= $form->field($model, 'adv_Image_CNIC')->textInput() ?>
+                <?= $form->field($model, 'adv_Image_CNIC')->fileInput() ?>
             </div>
             <div class="col-md-4">
-                <?= $form->field($model, 'adv_Image_License')->textInput() ?>
-            </div>
-        </div>
+                <?= $form->field($model, 'adv_Image_License')->fileInput() ?>
+            </div>  
+        </div> 
         <div class="row">
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Voting_Eligibility')->dropDownList([ 'No' => 'No', 'Yes' => 'Yes', ], ['prompt' => 'Status']) ?>

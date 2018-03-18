@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "advocates".
@@ -23,9 +24,9 @@ use Yii;
  * @property string $adv_VMHC
  * @property string $adv_VMLC
  * @property string $adv_NICNo
- * @property resource $adv_Photo
- * @property resource $adv_Image_CNIC
- * @property resource $adv_Image_License
+ * @property string $adv_Photo
+ * @property string $adv_Image_CNIC
+ * @property string $adv_Image_License
  * @property string $adv_Voting_Eligibility
  * @property string $adv_Status
  * @property string $adv_Created_At
@@ -38,6 +39,11 @@ class Advocates extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    //public $adv_Photo;
+    //public $adv_Image_CNIC;
+    //public $adv_Image_License;
+
     public static function tableName()
     {
         return 'advocates';
@@ -49,13 +55,15 @@ class Advocates extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_EDSC', 'adv_EDHC', 'adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Photo', 'adv_Image_CNIC', 'adv_Image_License', 'adv_Voting_Eligibility', 'adv_Status', 'adv_Created_By', 'adv_Updated_By'], 'required'],
+            [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_EDSC', 'adv_EDHC', 'adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status', 'adv_Created_By', 'adv_Updated_By'], 'required'],
             [['adv_EDSC', 'adv_EDHC', 'adv_EDLC', 'adv_Created_At', 'adv_Updated_At'], 'safe'],
-            [['adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_Photo', 'adv_Image_CNIC', 'adv_Image_License', 'adv_Voting_Eligibility', 'adv_Status'], 'string'],
+            [['adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_Voting_Eligibility', 'adv_Status'], 'string'],
             [['adv_Created_By', 'adv_Updated_By'], 'integer'],
             [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No'], 'string', 'max' => 255],
             [['adv_CNIC', 'adv_NICNo'], 'string', 'max' => 15],
             [['adv_SNo', 'adv_BRPNo', 'adv_HCRNo'], 'string', 'max' => 12],
+            [['adv_Photo', 'adv_Image_CNIC', 'adv_Image_License'], 'string', 'max' => 200],
+            [['adv_Photo','adv_Image_CNIC','adv_Image_License'],'file','skipOnEmpty'=> true],
         ];
     }
 
@@ -100,5 +108,30 @@ class Advocates extends \yii\db\ActiveRecord
     public static function find()
     {
         return new AdvocatesQuery(get_called_class());
+    }
+
+    public function upload(){
+        if($this->imageFile){
+            $path = Url::to('@webroot/uploads/');
+            $filename = strtolower($this->name).'.jpg';
+            $this->imageFile->saveAs($path.$filename);
+        }
+        return true;
+    }
+
+    public function getPhotoInfo(){
+        $path = Url::to('@webroot/uploads/');
+        $url = Url::to('@web/uploads/');
+        $filename = strtolower($this->adv_Name).'_photo'.'.jpg';
+        $alt = $this->adv_Name."'s Profile Picture";
+
+        $imageInfo = ['alt'=>$alt];
+
+        if(file_exists($path.$filename)){
+            $imageInfo['url'] = $url.$filename; 
+        }  else {
+            $imageInfo['url'] = $url.'default.png';
+        }
+        return $imageInfo;
     }
 }
