@@ -138,7 +138,7 @@ use dosamigos\datepicker\DatePicker;
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <?= Html::submitButton('Add Advocate', ['class' => 'btn btn-success']) ?>        
+                <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-lg']) ?>        
             </div>
         </div>
     </div>

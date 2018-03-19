@@ -22,7 +22,7 @@ $options = ['data-lightbox'=>'profile image','data-title'=>$photoInfo['alt']];
         <figcaption>(Click to enlarge)</figcaption>
     </figure>
 
-    <h2>Advocate Dedail's</h2>
+    <h2>Advocate Detail's</h2>
 
     <?= DetailView::widget([
         'model' => $model,

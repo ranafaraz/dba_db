@@ -77,11 +77,11 @@ class Advocates extends \yii\db\ActiveRecord
             'adv_Name' => 'Name',
             'adv_Father_Name' => 'Father  Name',
             'adv_Address' => 'Address',
-            'adv_Phone_No' => 'Phone  No',
+            'adv_Phone_No' => 'Phone No',
             'adv_CNIC' => 'CNIC',
-            'adv_SNo' => 'SNo',
-            'adv_BRPNo' => 'BRPNo',
-            'adv_HCRNo' => 'HCRNo',
+            'adv_SNo' => 'S - No',
+            'adv_BRPNo' => 'BRP - No',
+            'adv_HCRNo' => 'HCR - No',
             'adv_EDSC' => 'Enrollment Date - SC',
             'adv_EDHC' => 'Enrollment Date - HC',
             'adv_EDLC' => 'Enrollment Date - LC',
@@ -130,7 +130,7 @@ class Advocates extends \yii\db\ActiveRecord
         if(file_exists($path.$filename)){
             $imageInfo['url'] = $url.$filename; 
         }  else {
-            $imageInfo['url'] = $url.'default.png';
+            $imageInfo['url'] = $url.'default.jpg';
         }
         return $imageInfo;
     }
