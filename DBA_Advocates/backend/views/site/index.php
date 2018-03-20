@@ -11,7 +11,7 @@ $this->title = 'My Yii Application';
             <h2>Rahim Yar Khan</h2>
 
             <a href="index.php?r=advocates">
-                <button class="btn btn-success" style="padding: 10px 55px;">Advocates</button>
+                <button class="btn btn-success" style="padding: 10px 10px;">Advocates Database</button>
             </a>    
         </div>
     </div>
