@@ -69,7 +69,8 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p align="center">Copyright &copy All rights reserved, Powered By:<a href="http://www.dexdevs.com" style="color:#449D44"><b>DEXDEVS</b></a></p>
+        <p align="center">Copyright &copy All rights reserved, Powered By:<a href="http://www.dexdevs.com" target="_blank" style="color:#449D44"><b>DEXDEVS</b></a>
+        </p>
     </div>
 </footer>
 
