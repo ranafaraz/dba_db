@@ -91,7 +91,8 @@ class AdvocatesController extends Controller
                 $model->adv_Photo = 'uploads/'.$imageName.'.'.$model->adv_Photo->extension;
                 $model->adv_Image_CNIC = 'uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension;
                 $model->adv_Image_License = 'uploads/'.$image.'.'.$model->adv_Image_License->extension;
-            
+                $model->adv_Created_By = Yii::$app->user->identity->id; 
+                $model->adv_Updated_By = '0';           
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->adv_id]);
             }
@@ -133,7 +134,8 @@ class AdvocatesController extends Controller
             $model->adv_Photo = 'uploads/'.$imageName.'.'.$model->adv_Photo->extension;
             $model->adv_Image_CNIC = 'uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension;
             $model->adv_Image_License = 'uploads/'.$image.'.'.$model->adv_Image_License->extension;
-
+            $model->adv_Updated_By = Yii::$app->user->identity->id;
+            $model->adv_Created_By = $model->adv_Created_By;
             $model->save();
             return $this->redirect(['view', 'id' => $model->adv_id]);
         }
