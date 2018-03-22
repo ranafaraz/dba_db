@@ -63,7 +63,7 @@ class Advocates extends \yii\db\ActiveRecord
             [['adv_CNIC', 'adv_NICNo'], 'string', 'max' => 15],
             [['adv_SNo', 'adv_BRPNo', 'adv_HCRNo'], 'string', 'max' => 12],
             [['adv_Photo', 'adv_Image_CNIC', 'adv_Image_License'], 'string', 'max' => 200],
-            [['adv_Photo','adv_Image_CNIC','adv_Image_License'],'file','skipOnEmpty'=> true],
+            [['adv_Photo','adv_Image_CNIC','adv_Image_License'],'file','skipOnEmpty'=> true,],
         ];
     }
 
@@ -110,14 +110,7 @@ class Advocates extends \yii\db\ActiveRecord
         return new AdvocatesQuery(get_called_class());
     }
 
-    public function upload(){
-        if($this->imageFile){
-            $path = Url::to('@webroot/uploads/');
-            $filename = strtolower($this->name).'.jpg';
-            $this->imageFile->saveAs($path.$filename);
-        }
-        return true;
-    }
+    
 
     public function getPhotoInfo(){
         $path = Url::to('@webroot/uploads/');

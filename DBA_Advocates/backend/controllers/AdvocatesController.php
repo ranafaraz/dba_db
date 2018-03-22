@@ -75,22 +75,33 @@ class AdvocatesController extends Controller
             if ($model->load(Yii::$app->request->post())) {
 
             //get the instance of the upload file
-                $imageName = $model->adv_Name.'_photo';
                 $model->adv_Photo = UploadedFile::getInstance($model,'adv_Photo');
-                $model->adv_Photo->saveAs('uploads/'.$imageName.'.'.$model->adv_Photo->extension);
-
-                $imagename = $model->adv_Name.'_CNIC';
+                if(!empty($model->adv_Photo)){
+                    $imageName = $model->adv_Name.'_photo'; 
+                    $model->adv_Photo->saveAs('uploads/'.$imageName.'.'.$model->adv_Photo->extension);
+                    //save the path in the db column
+                    $model->adv_Photo = 'uploads/'.$imageName.'.'.$model->adv_Photo->extension;
+                } else {
+                   $model->adv_Photo = '0'; 
+                }
                 $model->adv_Image_CNIC = UploadedFile::getInstance($model,'adv_Image_CNIC');
+                if(!empty($model->adv_Image_CNIC)){
+                $imagename = $model->adv_Name.'_CNIC';
                 $model->adv_Image_CNIC->saveAs('uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension);
-
-                $image = $model->adv_Name.'_license';
-                $model->adv_Image_License = UploadedFile::getInstance($model,'adv_Image_License');
-                $model->adv_Image_License->saveAs('uploads/'.$image.'.'.$model->adv_Image_License->extension);
-
                 //save the path in the db column
-                $model->adv_Photo = 'uploads/'.$imageName.'.'.$model->adv_Photo->extension;
                 $model->adv_Image_CNIC = 'uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension;
-                $model->adv_Image_License = 'uploads/'.$image.'.'.$model->adv_Image_License->extension;
+                } else {
+                    $model->adv_Image_CNIC = '0';
+                }
+                $model->adv_Image_License = UploadedFile::getInstance($model,'adv_Image_License');
+                if(!empty($model->adv_Image_License)){
+                    $image = $model->adv_Name.'_license';
+                    $model->adv_Image_License->saveAs('uploads/'.$image.'.'.$model->adv_Image_License->extension);
+                    //save the path in the db column
+                    $model->adv_Image_License = 'uploads/'.$image.'.'.$model->adv_Image_License->extension;
+                } else {
+                    $model->adv_Image_License = '0';
+                }
                 $model->adv_Created_By = Yii::$app->user->identity->id; 
                 $model->adv_Updated_By = '0';           
                 $model->save();
@@ -118,22 +129,33 @@ class AdvocatesController extends Controller
         if(Yii::$app->user->can('update-advocate')){
             if ($model->load(Yii::$app->request->post())) {
             //get the instance of the upload file
-                $imageName = $model->adv_Name.'_photo';
                 $model->adv_Photo = UploadedFile::getInstance($model,'adv_Photo');
-                $model->adv_Photo->saveAs('uploads/'.$imageName.'.'.$model->adv_Photo->extension);
-
-                $imagename = $model->adv_Name.'_CNIC';
+                if(!empty($model->adv_Photo)){
+                    $imageName = $model->adv_Name.'_photo'; 
+                    $model->adv_Photo->saveAs('uploads/'.$imageName.'.'.$model->adv_Photo->extension);
+                    //save the path in the db column
+                    $model->adv_Photo = 'uploads/'.$imageName.'.'.$model->adv_Photo->extension;
+                } else {
+                   $model->adv_Photo = $model->adv_Photo; 
+                }
                 $model->adv_Image_CNIC = UploadedFile::getInstance($model,'adv_Image_CNIC');
+                if(!empty($model->adv_Image_CNIC)){
+                $imagename = $model->adv_Name.'_CNIC';
                 $model->adv_Image_CNIC->saveAs('uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension);
-
-                $image = $model->adv_Name.'_license';
+                //save the path in the db column
+                $model->adv_Image_CNIC = 'uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension;
+                } else {
+                    $model->adv_Image_CNIC = $model->adv_Image_CNIC;
+                }
                 $model->adv_Image_License = UploadedFile::getInstance($model,'adv_Image_License');
-                $model->adv_Image_License->saveAs('uploads/'.$image.'.'.$model->adv_Image_License->extension);
-
-            //save the path in the db column
-            $model->adv_Photo = 'uploads/'.$imageName.'.'.$model->adv_Photo->extension;
-            $model->adv_Image_CNIC = 'uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension;
-            $model->adv_Image_License = 'uploads/'.$image.'.'.$model->adv_Image_License->extension;
+                if(!empty($model->adv_Image_License)){
+                    $image = $model->adv_Name.'_license';
+                    $model->adv_Image_License->saveAs('uploads/'.$image.'.'.$model->adv_Image_License->extension);
+                    //save the path in the db column
+                    $model->adv_Image_License = 'uploads/'.$image.'.'.$model->adv_Image_License->extension;
+                } else {
+                    $model->adv_Image_License = $model->adv_Image_License;
+                }
             $model->adv_Updated_By = Yii::$app->user->identity->id;
             $model->adv_Created_By = $model->adv_Created_By;
             $model->save();
