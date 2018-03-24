@@ -63,7 +63,10 @@ class Advocates extends \yii\db\ActiveRecord
             [['adv_CNIC', 'adv_NICNo'], 'string', 'max' => 15],
             [['adv_SNo', 'adv_BRPNo', 'adv_HCRNo'], 'string', 'max' => 12],
             [['adv_Photo', 'adv_Image_CNIC', 'adv_Image_License'], 'string', 'max' => 200],
-            [['adv_Photo','adv_Image_CNIC','adv_Image_License'],'file','skipOnEmpty'=> true,],
+            [['adv_Image_CNIC','adv_Image_License'],'file','skipOnEmpty'=> true],
+            [['adv_Photo'], 'image', 'extensions' => 'png, jpg',
+                 'minWidth' => 100, 'maxWidth' => 200,
+                 'minHeight' => 100, 'maxHeight' => 300,],
         ];
     }
 
