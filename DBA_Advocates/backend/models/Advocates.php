@@ -130,4 +130,38 @@ class Advocates extends \yii\db\ActiveRecord
         }
         return $imageInfo;
     }
+
+    public function getCnicInfo(){
+        $path = Url::to('@webroot/uploads/');
+        $url = Url::to('@web/uploads/');
+        $filename = strtolower($this->adv_Name).'_CNIC'.'.jpg';
+        $alt = $this->adv_Name."'s CNIC Picture";
+
+        $imageInfo = ['alt'=>$alt];
+
+        if(file_exists($path.$filename)){
+            $imageInfo['url'] = $url.$filename; 
+        }  else {
+            $imageInfo['url'] = $url.'default.jpg';
+        }
+        return $imageInfo;
+    }
+
+    public function getLicenseInfo(){
+        $path = Url::to('@webroot/uploads/');
+        $url = Url::to('@web/uploads/');
+        $filename = strtolower($this->adv_Name).'_license'.'.jpg';
+        $alt = $this->adv_Name."'s License Picture";
+
+        $imageInfo = ['alt'=>$alt];
+
+        if(file_exists($path.$filename)){
+            $imageInfo['url'] = $url.$filename; 
+        }  else {
+            $imageInfo['url'] = $url.'default.jpg';
+        }
+        return $imageInfo;
+    }
+
+
 }
