@@ -19,7 +19,7 @@ $options = ['data-lightbox'=>'profile image','data-title'=>$photoInfo['alt']];
 
     <figure>
         <?= Html::a($photo,$photoInfo['url'],$options); ?>
-        <figcaption>(Click to enlarge)</figcaption>
+        <!-- <figcaption>(Click to enlarge)</figcaption> -->
     </figure>
 
     <h2>Advocate Detail's</h2>
@@ -54,6 +54,7 @@ $options = ['data-lightbox'=>'profile image','data-title'=>$photoInfo['alt']];
             'adv_Updated_By',
         ],
     ]) ?>
+<<<<<<< HEAD
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->adv_id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->adv_id], [
@@ -66,4 +67,28 @@ $options = ['data-lightbox'=>'profile image','data-title'=>$photoInfo['alt']];
     </p>
 
 
+=======
+    <button class="btn btn-success">Display CNIC and License</button>
+    <br/>
+    <div id="figure" style="display:none;margin-top: 10px; ">
+        <figure>
+            <?= Html::a($cnic,$cnicInfo['url'],$coptions); ?>
+        </figure>
+        <br>
+        <figure>
+            <?= Html::a($license,$licenseInfo['url'],$coptions); ?>
+        </figure>
+    </div>
+>>>>>>> cfd73c3351ef23fde0c0c484d9014f812fe6a04d
 </div>
+
+<?php
+$script = <<< JS
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#figure").toggle();
+    });
+});
+JS;
+$this->registerJs($script);
+?>

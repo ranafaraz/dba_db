@@ -41,6 +41,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+<<<<<<< HEAD
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -49,6 +50,16 @@ return [
             ],
         ],
         */
+=======
+        /*'urlManager' => [
+            'enablePrettyUrl' => true,
+            //'showScriptName' => false,
+            //'rules' => [
+                //'/profile/<id:[\d-]+>' =>'/department/view',
+            //],
+        ],*/
+        
+>>>>>>> cfd73c3351ef23fde0c0c484d9014f812fe6a04d
     ],
     'params' => $params,
 ];
