@@ -49,11 +49,11 @@ $this->params['breadcrumbs'][] = $this->title;
             //'adv_Updated_By',
         ];
 
-        //Reader a export dropdown menu
-        echo ExportMenu::widget([
-            'dataProvider' => $dataProvider,
-            'columns' => $gridColumns
-        ]);
+        // //Reader a export dropdown menu
+        // echo ExportMenu::widget([
+        //     'dataProvider' => $dataProvider,
+        //     'columns' => $gridColumns
+        // ]);
     ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
