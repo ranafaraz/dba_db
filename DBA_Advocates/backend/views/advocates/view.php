@@ -12,14 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 $photoInfo = $model->PhotoInfo;
 $photo = Html::img($photoInfo['url'],['alt'=>$photoInfo['alt']]);
 $options = ['data-lightbox'=>'profile image','data-title'=>$photoInfo['alt']];
-
-$cnicInfo = $model->CnicInfo;
-$cnic = Html::img($cnicInfo['url'],['alt'=>$cnicInfo['alt']]);
-$coptions = ['data-lightbox'=>'CNIC image','data-title'=>$cnicInfo['alt']];
-
-$licenseInfo = $model->LicenseInfo;
-$license = Html::img($licenseInfo['url'],['alt'=>$licenseInfo['alt']]);
-$coptions = ['data-lightbox'=>'License image','data-title'=>$licenseInfo['alt']];
 ?>
 <div class="advocates-view">
 
@@ -29,17 +21,6 @@ $coptions = ['data-lightbox'=>'License image','data-title'=>$licenseInfo['alt']]
         <?= Html::a($photo,$photoInfo['url'],$options); ?>
         <figcaption>(Click to enlarge)</figcaption>
     </figure>
-
-    <p>
-        <?= Html::a('Update Profile', ['update', 'id' => $model->adv_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete Profile', ['delete', 'id' => $model->adv_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 
     <h2>Advocate Detail's</h2>
 
@@ -73,14 +54,16 @@ $coptions = ['data-lightbox'=>'License image','data-title'=>$licenseInfo['alt']]
             'adv_Updated_By',
         ],
     ]) ?>
+    <p>
+        <?= Html::a('Update', ['update', 'id' => $model->adv_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->adv_id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
 
-    <figure>
-        <?= Html::a($cnic,$cnicInfo['url'],$coptions); ?>
-        <figcaption>(Click to enlarge)</figcaption>
-    </figure>
 
-    <figure>
-        <?= Html::a($license,$licenseInfo['url'],$coptions); ?>
-        <figcaption>(Click to enlarge)</figcaption>
-    </figure>
 </div>

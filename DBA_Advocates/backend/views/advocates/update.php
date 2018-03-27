@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Advocates */
 
-$this->title = 'Update Advocate '.Html::encode($model->adv_Name).' Profile' ;
+$this->title = 'Update Advocates: {nameAttribute}';
 $this->params['breadcrumbs'][] = ['label' => 'Advocates', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->adv_id, 'url' => ['view', 'id' => $model->adv_id]];
 $this->params['breadcrumbs'][] = 'Update';

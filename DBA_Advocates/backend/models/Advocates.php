@@ -55,18 +55,15 @@ class Advocates extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_EDSC', 'adv_EDHC', 'adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status'], 'required'],
-            [['adv_EDSC', 'adv_EDHC', 'adv_EDLC', 'adv_Created_At', 'adv_Updated_At','adv_Updated_By','adv_Created_By'], 'safe'],
+            [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_EDSC', 'adv_EDHC', 'adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status', 'adv_Created_By', 'adv_Updated_By'], 'required'],
+            [['adv_EDSC', 'adv_EDHC', 'adv_EDLC', 'adv_Created_At', 'adv_Updated_At'], 'safe'],
             [['adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_Voting_Eligibility', 'adv_Status'], 'string'],
             [['adv_Created_By', 'adv_Updated_By'], 'integer'],
             [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No'], 'string', 'max' => 255],
             [['adv_CNIC', 'adv_NICNo'], 'string', 'max' => 15],
             [['adv_SNo', 'adv_BRPNo', 'adv_HCRNo'], 'string', 'max' => 12],
             [['adv_Photo', 'adv_Image_CNIC', 'adv_Image_License'], 'string', 'max' => 200],
-            [['adv_Image_CNIC','adv_Image_License'],'file','skipOnEmpty'=> true],
-            [['adv_Photo'], 'image', 'extensions' => 'png, jpg',
-                 'minWidth' => 100, 'maxWidth' => 200,
-                 'minHeight' => 100, 'maxHeight' => 300,],
+            [['adv_Photo','adv_Image_CNIC','adv_Image_License'],'file','skipOnEmpty'=> true],
         ];
     }
 
@@ -113,7 +110,14 @@ class Advocates extends \yii\db\ActiveRecord
         return new AdvocatesQuery(get_called_class());
     }
 
-    
+    public function upload(){
+        if($this->imageFile){
+            $path = Url::to('@webroot/uploads/');
+            $filename = strtolower($this->name).'.jpg';
+            $this->imageFile->saveAs($path.$filename);
+        }
+        return true;
+    }
 
     public function getPhotoInfo(){
         $path = Url::to('@webroot/uploads/');
@@ -130,38 +134,4 @@ class Advocates extends \yii\db\ActiveRecord
         }
         return $imageInfo;
     }
-
-    public function getCnicInfo(){
-        $path = Url::to('@webroot/uploads/');
-        $url = Url::to('@web/uploads/');
-        $filename = strtolower($this->adv_Name).'_CNIC'.'.jpg';
-        $alt = $this->adv_Name."'s CNIC Picture";
-
-        $imageInfo = ['alt'=>$alt];
-
-        if(file_exists($path.$filename)){
-            $imageInfo['url'] = $url.$filename; 
-        }  else {
-            $imageInfo['url'] = $url.'default.jpg';
-        }
-        return $imageInfo;
-    }
-
-    public function getLicenseInfo(){
-        $path = Url::to('@webroot/uploads/');
-        $url = Url::to('@web/uploads/');
-        $filename = strtolower($this->adv_Name).'_license'.'.jpg';
-        $alt = $this->adv_Name."'s License Picture";
-
-        $imageInfo = ['alt'=>$alt];
-
-        if(file_exists($path.$filename)){
-            $imageInfo['url'] = $url.$filename; 
-        }  else {
-            $imageInfo['url'] = $url.'default.jpg';
-        }
-        return $imageInfo;
-    }
-
-
 }

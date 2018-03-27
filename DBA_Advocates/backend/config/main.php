@@ -41,14 +41,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
-            //'showScriptName' => false,
-            //'rules' => [
-                //'/profile/<id:[\d-]+>' =>'/department/view',
-            //],
+            'showScriptName' => false,
+            'rules' => [
+            ],
         ],
-        
+        */
     ],
     'params' => $params,
 ];
