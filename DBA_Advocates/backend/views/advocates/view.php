@@ -27,7 +27,7 @@ $coptions = ['data-lightbox'=>'License image','data-title'=>$licenseInfo['alt']]
 
     <figure>
         <?= Html::a($photo,$photoInfo['url'],$options); ?>
-        <figcaption>(Click to enlarge)</figcaption>
+        <!-- <figcaption>(Click to enlarge)</figcaption> -->
     </figure>
 
     <p>
@@ -73,14 +73,26 @@ $coptions = ['data-lightbox'=>'License image','data-title'=>$licenseInfo['alt']]
             'adv_Updated_By',
         ],
     ]) ?>
-
-    <figure>
-        <?= Html::a($cnic,$cnicInfo['url'],$coptions); ?>
-        <figcaption>(Click to enlarge)</figcaption>
-    </figure>
-
-    <figure>
-        <?= Html::a($license,$licenseInfo['url'],$coptions); ?>
-        <figcaption>(Click to enlarge)</figcaption>
-    </figure>
+    <button class="btn btn-success">Display CNIC and License</button>
+    <br/>
+    <div id="figure" style="display:none;margin-top: 10px; ">
+        <figure>
+            <?= Html::a($cnic,$cnicInfo['url'],$coptions); ?>
+        </figure>
+        <br>
+        <figure>
+            <?= Html::a($license,$licenseInfo['url'],$coptions); ?>
+        </figure>
+    </div>
 </div>
+
+<?php
+$script = <<< JS
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#figure").toggle();
+    });
+});
+JS;
+$this->registerJs($script);
+?>
