@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\AdvocatesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -20,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Advocates', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+<<<<<<< HEAD
     <?php  
         $gridColumns = [
             //'adv_id',
@@ -55,6 +57,9 @@ $this->params['breadcrumbs'][] = $this->title;
         //     'columns' => $gridColumns
         // ]);
     ?>
+=======
+    
+>>>>>>> 83dd26b1d34dd0d0d5b5d840b43a1e8b5cd28116
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
