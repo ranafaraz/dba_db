@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8bc681e3431490b51f98e582f0f4a69",
+    "content-hash": "c736e49f510702304f65c59eba6590e8",
     "packages": [
         {
             "name": "2amigos/yii2-date-picker-widget",
@@ -109,6 +109,25 @@
             "type": "bower-asset",
             "license": [
                 "Apache-2.0"
+            ]
+        },
+        {
+            "name": "bower-asset/gentelella",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:puikinsh/gentelella.git",
+                "reference": "3448fdfdf16a41707d6e2a8154d592a88d85c41c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/puikinsh/gentelella/zipball/3448fdfdf16a41707d6e2a8154d592a88d85c41c",
+                "reference": "3448fdfdf16a41707d6e2a8154d592a88d85c41c",
+                "shasum": null
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
             ]
         },
         {
@@ -409,6 +428,106 @@
             "time": "2018-02-23T01:58:20+00:00"
         },
         {
+            "name": "fortawesome/font-awesome",
+            "version": "v4.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "a8386aae19e200ddb0f6845b5feeee5eb7013687"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/a8386aae19e200ddb0f6845b5feeee5eb7013687",
+                "reference": "a8386aae19e200ddb0f6845b5feeee5eb7013687",
+                "shasum": ""
+            },
+            "require-dev": {
+                "jekyll": "1.0.2",
+                "lessc": "1.4.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.6.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OFL-1.1",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Gandy",
+                    "email": "dave@fontawesome.io",
+                    "homepage": "http://twitter.com/davegandy",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The iconic font and CSS framework",
+            "homepage": "http://fontawesome.io/",
+            "keywords": [
+                "FontAwesome",
+                "awesome",
+                "bootstrap",
+                "font",
+                "icon"
+            ],
+            "time": "2016-10-24T15:52:54+00:00"
+        },
+        {
+            "name": "rmrevin/yii2-fontawesome",
+            "version": "2.17.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmrevin/yii2-fontawesome.git",
+                "reference": "65ce306da864f4d558348aeba040ed7876878090"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/65ce306da864f4d558348aeba040ed7876878090",
+                "reference": "65ce306da864f4d558348aeba040ed7876878090",
+                "shasum": ""
+            },
+            "require": {
+                "fortawesome/font-awesome": "~4.7",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "2.0.*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "rmrevin\\yii\\fontawesome\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Revin Roman",
+                    "email": "roman@rmrevin.com",
+                    "homepage": "https://rmrevin.com/"
+                }
+            ],
+            "description": "Asset Bundle for Yii2 with Font Awesome",
+            "keywords": [
+                "asset",
+                "awesome",
+                "bundle",
+                "font",
+                "yii"
+            ],
+            "time": "2017-01-11T14:05:47+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.0.2",
             "source": {
@@ -465,16 +584,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.14.2",
+            "version": "2.0.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "ef74f3783e964cea477f06e6d6ce209df1f37881"
+                "reference": "ed3a9e1c4abe206e1c3ce48a6b3624119b79850d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ef74f3783e964cea477f06e6d6ce209df1f37881",
-                "reference": "ef74f3783e964cea477f06e6d6ce209df1f37881",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ed3a9e1c4abe206e1c3ce48a6b3624119b79850d",
+                "reference": "ed3a9e1c4abe206e1c3ce48a6b3624119b79850d",
                 "shasum": ""
             },
             "require": {
@@ -561,7 +680,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-03-13T14:15:01+00:00"
+            "time": "2018-03-21T18:36:53+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -625,16 +744,16 @@
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2"
+                "reference": "163419f1f197e02f015713b0d4f85598d8f8aa80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2",
-                "reference": "3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/163419f1f197e02f015713b0d4f85598d8f8aa80",
+                "reference": "163419f1f197e02f015713b0d4f85598d8f8aa80",
                 "shasum": ""
             },
             "require": {
@@ -663,6 +782,10 @@
                 {
                     "name": "Qiang Xue",
                     "email": "qiang.xue@gmail.com"
+                },
+                {
+                    "name": "Carsten Brandt",
+                    "email": "mail@cebe.cc"
                 }
             ],
             "description": "The composer plugin for Yii extension installer",
@@ -671,7 +794,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2016-12-20T13:26:02+00:00"
+            "time": "2018-03-21T16:15:55+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -722,6 +845,64 @@
                 "yii2"
             ],
             "time": "2017-08-04T10:48:17+00:00"
+        },
+        {
+            "name": "yiister/yii2-gentelella",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiister/yii2-gentelella.git",
+                "reference": "81080a3d0b84cabc783c45d5ecf6d97048972277"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiister/yii2-gentelella/zipball/81080a3d0b84cabc783c45d5ecf6d97048972277",
+                "reference": "81080a3d0b84cabc783c45d5ecf6d97048972277",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/gentelella": "*",
+                "php": ">=5.4.0",
+                "rmrevin/yii2-fontawesome": "~2.0",
+                "yiisoft/yii2": "~2.0.0",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yiister\\gentelella\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Fedotov",
+                    "email": "fps.06@mail.ru",
+                    "homepage": "https://github.com/fps01",
+                    "role": "Creator"
+                }
+            ],
+            "description": "Free admin template for backend",
+            "keywords": [
+                "admin",
+                "asset",
+                "backend",
+                "bootsprap3",
+                "extension",
+                "gentelella",
+                "theme",
+                "yii2"
+            ],
+            "time": "2017-11-12T16:49:22+00:00"
         }
     ],
     "packages-dev": [

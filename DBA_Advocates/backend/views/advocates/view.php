@@ -29,7 +29,7 @@ $coptions = ['data-lightbox'=>'License image','data-title'=>$licenseInfo['alt']]
         <?= Html::a($photo,$photoInfo['url'],$options); ?>
         <!-- <figcaption>(Click to enlarge)</figcaption> -->
     </figure>
-
+    <br>
     <p>
         <?= Html::a('Update Profile', ['update', 'id' => $model->adv_id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete Profile', ['delete', 'id' => $model->adv_id], [
