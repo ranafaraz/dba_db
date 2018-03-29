@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\AdvocatesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -21,7 +22,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Advocates', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

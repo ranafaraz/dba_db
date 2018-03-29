@@ -37,6 +37,7 @@ class AdvocatesController extends Controller
      */
     public function actionIndex()
     {
+        if(Yii::$app->user->can('go to index')){
         $searchModel = new AdvocatesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -44,6 +45,9 @@ class AdvocatesController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+        }else{
+            throw new ForbiddenHttpException;
+        }  
     }
 
     /**
@@ -125,6 +129,7 @@ class AdvocatesController extends Controller
      */
     public function actionUpdate($id)
     {
+        $advocate = Yii::$app->db->createCommand("SELECT * FROM advocates where adv_id = $id")->queryAll();
         $model = $this->findModel($id);
         if(Yii::$app->user->can('update-advocate')){
             if ($model->load(Yii::$app->request->post())) {
@@ -136,7 +141,7 @@ class AdvocatesController extends Controller
                     //save the path in the db column
                     $model->adv_Photo = 'uploads/'.$imageName.'.'.$model->adv_Photo->extension;
                 } else {
-                   $model->adv_Photo = $model->adv_Photo; 
+                   $model->adv_Photo = $advocate[0]['adv_Photo']; 
                 }
                 $model->adv_Image_CNIC = UploadedFile::getInstance($model,'adv_Image_CNIC');
                 if(!empty($model->adv_Image_CNIC)){
@@ -145,7 +150,7 @@ class AdvocatesController extends Controller
                 //save the path in the db column
                 $model->adv_Image_CNIC = 'uploads/'.$imagename.'.'.$model->adv_Image_CNIC->extension;
                 } else {
-                    $model->adv_Image_CNIC = $model->adv_Image_CNIC;
+                    $model->adv_Image_CNIC = $advocate[0]['adv_Image_CNIC'];
                 }
                 $model->adv_Image_License = UploadedFile::getInstance($model,'adv_Image_License');
                 if(!empty($model->adv_Image_License)){
@@ -154,10 +159,11 @@ class AdvocatesController extends Controller
                     //save the path in the db column
                     $model->adv_Image_License = 'uploads/'.$image.'.'.$model->adv_Image_License->extension;
                 } else {
-                    $model->adv_Image_License = $model->adv_Image_License;
+                    $model->adv_Image_License = $advocate[0]['adv_Image_License'];
                 }
             $model->adv_Updated_By = Yii::$app->user->identity->id;
             $model->adv_Created_By = $model->adv_Created_By;
+            $model->adv_Updated_At = date('yyyy-m-d h:m:s');
             $model->save();
             return $this->redirect(['view', 'id' => $model->adv_id]);
         }

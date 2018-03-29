@@ -121,11 +121,11 @@ use dosamigos\datepicker\DatePicker;
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Status')->dropDownList([ 'Active' => 'Active', 'Inactive' => 'Inactive', ], ['prompt' => 'Status']) ?>            
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 invisible">
                 <?= $form->field($model, 'adv_Created_At')->textInput() ?>            
-            </div>
+            </div> 
         </div>
-        <div class="row">
+        <div class="row invisible">
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Created_By')->textInput() ?>
             </div>
@@ -133,9 +133,9 @@ use dosamigos\datepicker\DatePicker;
                 <?= $form->field($model, 'adv_Updated_At')->textInput() ?>            
             </div>
             <div class="col-md-4">
-                <?= $form->field($model, 'adv_Updated_By')->textInput() ?>
+                
             </div>
-        </div>
+        </div> 
         <div class="row">
             <div class="col-md-12 text-center">
                 <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-lg']) ?>        

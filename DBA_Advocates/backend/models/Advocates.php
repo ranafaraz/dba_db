@@ -40,10 +40,6 @@ class Advocates extends \yii\db\ActiveRecord
      * @inheritdoc
      */
 
-    //public $adv_Photo;
-    //public $adv_Image_CNIC;
-    //public $adv_Image_License;
-
     public static function tableName()
     {
         return 'advocates';
@@ -64,7 +60,7 @@ class Advocates extends \yii\db\ActiveRecord
             [['adv_SNo', 'adv_BRPNo', 'adv_HCRNo'], 'string', 'max' => 12],
             [['adv_Photo', 'adv_Image_CNIC', 'adv_Image_License'], 'string', 'max' => 200],
             [['adv_Image_CNIC','adv_Image_License'],'file','skipOnEmpty'=> true],
-            [['adv_Photo'], 'image', 'extensions' => 'png, jpg',
+            [['adv_Photo'], 'image', 'extensions' => 'jpg',
                  'minWidth' => 100, 'maxWidth' => 200,
                  'minHeight' => 100, 'maxHeight' => 300,],
         ];
