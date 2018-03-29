@@ -86,6 +86,24 @@ class SiteController extends Controller
             ]);
         }
     }
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        $authItems = AuthItem::find()->all();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+            'authItems'=> $authItems,
+        ]);
+    }
 
     /**
      * Logout action.
