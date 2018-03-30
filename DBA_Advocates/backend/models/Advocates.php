@@ -52,7 +52,7 @@ class Advocates extends \yii\db\ActiveRecord
     {
         return [
             // [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_DOB', 'adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status'], 'required'],
-            [['adv_Created_At', 'adv_Updated_At','adv_Updated_By','adv_Created_By'], 'safe'],
+            [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_DOB','adv_SC', 'adv_HC', 'adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status','adv_Created_At', 'adv_Updated_At','adv_Updated_By','adv_Created_By'], 'safe'],
             [['adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_Voting_Eligibility', 'adv_Status'], 'string'],
             [['adv_Created_By', 'adv_Updated_By'], 'integer'],
             [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No'], 'string', 'max' => 255],
