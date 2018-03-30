@@ -163,7 +163,7 @@ class AdvocatesController extends Controller
                 }
             $model->adv_Updated_By = Yii::$app->user->identity->id;
             $model->adv_Created_By = $model->adv_Created_By;
-            $model->adv_Updated_At = date('yyyy-m-d h:m:s');
+            $model->adv_Updated_At = date('Y-m-d h:m:s');
             $model->save();
             return $this->redirect(['view', 'id' => $model->adv_id]);
         }

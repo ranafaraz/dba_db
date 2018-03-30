@@ -21,7 +21,7 @@
         "2amigos/yii2-date-picker-widget": "~1.0",
         "yiister/yii2-gentelella": "~1.0",
         "kartik-v/yii2-export": "*",
-        "kartik-v/yii2-mpdf": "*",
+        "kartik-v/yii2-mpdf": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
