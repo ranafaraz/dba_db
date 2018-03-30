@@ -15,11 +15,13 @@ class AdvocatesSearch extends Advocates
     /**
      * @inheritdoc
      */
+    public $globalSearch;
+
     public function rules()
     {
         return [
             [['adv_id', 'adv_Created_By', 'adv_Updated_By'], 'integer'],
-            [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_EDSC', 'adv_EDHC', 'adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Photo', 'adv_Image_CNIC', 'adv_Image_License', 'adv_Voting_Eligibility', 'adv_Status', 'adv_Created_At', 'adv_Updated_At'], 'safe'],
+            [['adv_Name','globalSearch', 'adv_Father_Name', 'adv_Address','adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_DOB','adv_EDSC', 'adv_EDHC','adv_EDLC', 'adv_VMSC',   'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status','adv_Created_At', 'adv_Updated_At','adv_Updated_By','adv_Created_By'], 'safe'],
         ];
     }
 
@@ -58,34 +60,24 @@ class AdvocatesSearch extends Advocates
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'adv_id' => $this->adv_id,
-            'adv_EDSC' => $this->adv_EDSC,
-            'adv_EDHC' => $this->adv_EDHC,
-            'adv_EDLC' => $this->adv_EDLC,
-            'adv_Created_At' => $this->adv_Created_At,
-            'adv_Created_By' => $this->adv_Created_By,
-            'adv_Updated_At' => $this->adv_Updated_At,
-            'adv_Updated_By' => $this->adv_Updated_By,
-        ]);
 
-        $query->andFilterWhere(['like', 'adv_Name', $this->adv_Name])
-            ->andFilterWhere(['like', 'adv_Father_Name', $this->adv_Father_Name])
-            ->andFilterWhere(['like', 'adv_Address', $this->adv_Address])
-            ->andFilterWhere(['like', 'adv_Phone_No', $this->adv_Phone_No])
-            ->andFilterWhere(['like', 'adv_CNIC', $this->adv_CNIC])
-            ->andFilterWhere(['like', 'adv_SNo', $this->adv_SNo])
-            ->andFilterWhere(['like', 'adv_BRPNo', $this->adv_BRPNo])
-            ->andFilterWhere(['like', 'adv_HCRNo', $this->adv_HCRNo])
-            ->andFilterWhere(['like', 'adv_VMSC', $this->adv_VMSC])
-            ->andFilterWhere(['like', 'adv_VMHC', $this->adv_VMHC])
-            ->andFilterWhere(['like', 'adv_VMLC', $this->adv_VMLC])
-            ->andFilterWhere(['like', 'adv_NICNo', $this->adv_NICNo])
-            ->andFilterWhere(['like', 'adv_Photo', $this->adv_Photo])
-            ->andFilterWhere(['like', 'adv_Image_CNIC', $this->adv_Image_CNIC])
-            ->andFilterWhere(['like', 'adv_Image_License', $this->adv_Image_License])
-            ->andFilterWhere(['like', 'adv_Voting_Eligibility', $this->adv_Voting_Eligibility])
-            ->andFilterWhere(['like', 'adv_Status', $this->adv_Status]);
+        $query->orFilterWhere(['like', 'adv_Name', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_Father_Name', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_Address', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_Phone_No', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_CNIC', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_SNo', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_BRPNo', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_HCRNo', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_VMSC', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_VMHC', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_VMLC', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_NICNo', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_Photo', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_Image_CNIC', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_Image_License', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_Voting_Eligibility', $this->globalSearch])
+            ->orFilterWhere(['like', 'adv_Status', $this->adv_Status]);
 
         return $dataProvider;
     }

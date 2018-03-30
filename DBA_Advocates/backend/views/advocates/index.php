@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\helpers\Url;
+use kartik\export\ExportMenu;
 
 
 /* @var $this yii\web\View */
@@ -16,11 +18,46 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Advocates', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+
+    <?php  
+        if(Yii::$app->user->can('export record')){
+            $gridColumns = [
+                //'adv_id',
+                'adv_Name',
+                'adv_Father_Name',
+                'adv_CNIC',
+                'adv_Phone_No',
+                'adv_Address',
+                'adv_SNo',
+                'adv_BRPNo',
+                'adv_HCRNo',
+                'adv_DOB',
+                //'adv_EDSC',
+                //'adv_EDHC',
+                //'adv_EDLC',
+                //'adv_VMSC',
+                //'adv_VMHC',
+                //'adv_VMLC',
+                //'adv_NICNo',
+                //'adv_Photo',
+                //'adv_Image_CNIC',
+                //'adv_Image_License',
+                'adv_Voting_Eligibility',
+                //'adv_Status',
+            ];
+
+            //Reader a export dropdown menu
+            echo ExportMenu::widget([
+                'dataProvider' => $dataProvider,
+                'columns' => $gridColumns
+            ]);
+        }    
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -33,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'adv_Father_Name',
             'adv_CNIC',
             'adv_Phone_No',
-            //'adv_Address',
+            'adv_Address',
             //'adv_SNo',
             //'adv_BRPNo',
             //'adv_HCRNo',
