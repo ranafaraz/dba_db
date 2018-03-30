@@ -51,8 +51,8 @@ class Advocates extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status'], 'required'],
-            [['adv_EDLC', 'adv_Created_At', 'adv_Updated_At','adv_Updated_By','adv_Created_By'], 'safe'],
+            // [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_DOB', 'adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status'], 'required'],
+            [['adv_Created_At', 'adv_Updated_At','adv_Updated_By','adv_Created_By'], 'safe'],
             [['adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_Voting_Eligibility', 'adv_Status'], 'string'],
             [['adv_Created_By', 'adv_Updated_By'], 'integer'],
             [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No'], 'string', 'max' => 255],
@@ -81,6 +81,7 @@ class Advocates extends \yii\db\ActiveRecord
             'adv_SNo' => 'S - No',
             'adv_BRPNo' => 'BRP - No',
             'adv_HCRNo' => 'HCR - No',
+            'adv_DOB' => 'DOB',
             'adv_EDSC' => 'Enrollment Date - SC',
             'adv_EDHC' => 'Enrollment Date - HC',
             'adv_EDLC' => 'Enrollment Date - LC',

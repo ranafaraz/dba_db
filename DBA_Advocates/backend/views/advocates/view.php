@@ -55,6 +55,7 @@ $coptions = ['data-lightbox'=>'License image','data-title'=>$licenseInfo['alt']]
             'adv_SNo',
             'adv_BRPNo',
             'adv_HCRNo',
+            'adv_DOB',
             'adv_EDSC',
             'adv_EDHC',
             'adv_EDLC',

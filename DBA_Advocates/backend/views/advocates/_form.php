@@ -48,7 +48,7 @@ use dosamigos\datepicker\DatePicker;
                 <?= $form->field($model, 'adv_HCRNo')->textInput(['maxlength' => true]) ?>
             </div>
             <div class="col-md-4">
-                <?= $form->field($model, 'adv_EDSC')->widget(
+                <?= $form->field($model, 'adv_DOB')->widget(
                 DatePicker::className(), [
                     // inline too, not bad
                      'inline' => false, 
@@ -62,6 +62,19 @@ use dosamigos\datepicker\DatePicker;
             </div>
         </div>
         <div class="row">
+            <div class="col-md-4">
+                <?= $form->field($model, 'adv_EDSC')->widget(
+                DatePicker::className(), [
+                    // inline too, not bad
+                     'inline' => false, 
+                     // modify template for custom rendering
+                    //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+                    'clientOptions' => [
+                        'autoclose' => true,
+                        'format' => 'yyyy-m-d'
+                    ]
+                ]);?>
+            </div>
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_EDHC')->widget(
                 DatePicker::className(), [
@@ -88,19 +101,16 @@ use dosamigos\datepicker\DatePicker;
                     ]
                 ]);?>
             </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_VMSC')->dropDownList([ 'No' => 'No', 'Yes' => 'Yes', ], ['prompt' => 'Status']) ?>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_VMHC')->dropDownList([ 'No' => 'No', 'Yes' => 'Yes', ], ['prompt' => 'Status']) ?>
             </div>
             <div class="col-md-4">
                  <?= $form->field($model, 'adv_VMLC')->dropDownList([ 'No' => 'No', 'RYK' => 'RYK', ], ['prompt' => 'Status']) ?>
-            </div>
-            <div class="col-md-4">
-                <?= $form->field($model, 'adv_NICNo')->textInput(['maxlength' => true]) ?>
             </div>
         </div>
         <div class="row">
@@ -116,24 +126,24 @@ use dosamigos\datepicker\DatePicker;
         </div> 
         <div class="row">
             <div class="col-md-4">
+                <?= $form->field($model, 'adv_NICNo')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="col-md-4">
                 <?= $form->field($model, 'adv_Voting_Eligibility')->dropDownList([ 'No' => 'No', 'Yes' => 'Yes', ], ['prompt' => 'Status']) ?>
             </div>
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Status')->dropDownList([ 'Active' => 'Active', 'Inactive' => 'Inactive', ], ['prompt' => 'Status']) ?>            
-            </div>
-            <div class="col-md-4 invisible">
-                <?= $form->field($model, 'adv_Created_At')->textInput() ?>            
             </div> 
         </div>
         <div class="row invisible">
+            <div class="col-md-4">
+                <?= $form->field($model, 'adv_Created_At')->textInput() ?>            
+            </div>
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Created_By')->textInput() ?>
             </div>
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Updated_At')->textInput() ?>            
-            </div>
-            <div class="col-md-4">
-                
             </div>
         </div> 
         <div class="row">
