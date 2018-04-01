@@ -43,10 +43,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'adv_VMHC',
                 'adv_VMLC',
                 'adv_NICNo',
-                'adv_Photo',
-                'adv_Image_CNIC',
-                'adv_Image_License',
-                'adv_Voting_Eligibility',
                 'adv_Status',
             ];
             //Reader a export dropdown menu
