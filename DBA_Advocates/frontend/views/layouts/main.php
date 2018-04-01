@@ -41,9 +41,20 @@ AppAsset::register($this);
         ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+        //$menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    } elseif(Yii::$app->user->id == 3){
+        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/site/logout'], 'post')
+            . Html::submitButton(
+                'Logout (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'btn btn-link logout']
+            )
+            . Html::endForm()
+            . '</li>';
     } else {
+        //$menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
