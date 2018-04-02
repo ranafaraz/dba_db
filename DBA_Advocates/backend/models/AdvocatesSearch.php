@@ -15,6 +15,7 @@ class AdvocatesSearch extends Advocates
     /**
      * @inheritdoc
      */
+
     public $globalSearch;
 
     public function rules()
@@ -77,7 +78,7 @@ class AdvocatesSearch extends Advocates
             ->orFilterWhere(['like', 'adv_Image_CNIC', $this->globalSearch])
             ->orFilterWhere(['like', 'adv_Image_License', $this->globalSearch])
             ->orFilterWhere(['like', 'adv_Voting_Eligibility', $this->globalSearch])
-            ->orFilterWhere(['like', 'adv_Status', $this->adv_Status]);
+            ->orFilterWhere(['like', 'adv_Status', $this->globalSearch]);
 
         return $dataProvider;
     }

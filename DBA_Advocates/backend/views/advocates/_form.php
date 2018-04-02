@@ -63,7 +63,7 @@ use dosamigos\datepicker\DatePicker;
         </div>
         <div class="row">
             <div class="col-md-4">
-                <?= $form->field($model, 'adv_EDSC')->widget(
+               <?= $form->field($model, 'adv_EDSC')->widget(
                 DatePicker::className(), [
                     // inline too, not bad
                      'inline' => false, 
@@ -117,33 +117,36 @@ use dosamigos\datepicker\DatePicker;
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Photo')->fileInput() ?>
             </div>
-             <div class="col-md-4">
+            <div class="col-md-4">
                 <?= $form->field($model, 'adv_Image_CNIC')->fileInput() ?>
             </div>
-            <div class="col-md-4">
+             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Image_License')->fileInput() ?>
-            </div> 
-        </div> 
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_NICNo')->textInput(['maxlength' => true]) ?>
-            </div>
+            </div> 
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Voting_Eligibility')->dropDownList([ 'No' => 'No', 'Yes' => 'Yes', ], ['prompt' => 'Status']) ?>
             </div>
             <div class="col-md-4">
                 <?= $form->field($model, 'adv_Status')->dropDownList([ 'Active' => 'Active', 'Inactive' => 'Inactive', ], ['prompt' => 'Status']) ?>            
-            </div> 
+            </div>
         </div>
         <div class="row invisible">
-            <div class="col-md-4">
+            <div class="col-md-3 ">
                 <?= $form->field($model, 'adv_Created_At')->textInput() ?>            
-            </div>
-            <div class="col-md-4">
+            </div> 
+            <div class="col-md-3">
                 <?= $form->field($model, 'adv_Created_By')->textInput() ?>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <?= $form->field($model, 'adv_Updated_At')->textInput() ?>            
+            </div>
+            <div class="col-md-3">
+                <?= $form->field($model, 'adv_Updated_At')->textInput() ?>   
             </div>
         </div> 
         <div class="row">
