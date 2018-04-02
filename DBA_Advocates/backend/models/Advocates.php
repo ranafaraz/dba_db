@@ -51,6 +51,8 @@ class Advocates extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['adv_Name', 'adv_Status'], 'required'],
+
             // [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC', 'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_DOB', 'adv_EDSC', 'adv_EDHC','adv_EDLC', 'adv_VMSC', 'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status'], 'required'],
             [['adv_Name', 'adv_Father_Name', 'adv_Address', 'adv_Phone_No', 'adv_CNIC',   'adv_SNo', 'adv_BRPNo', 'adv_HCRNo', 'adv_DOB','adv_EDSC', 'adv_EDHC','adv_EDLC', 'adv_VMSC',   'adv_VMHC', 'adv_VMLC', 'adv_NICNo', 'adv_Voting_Eligibility', 'adv_Status','adv_Created_At', 'adv_Updated_At','adv_Updated_By','adv_Created_By'], 'safe'],
 
