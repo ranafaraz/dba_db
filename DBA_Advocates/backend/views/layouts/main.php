@@ -59,8 +59,8 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                         <img src="dist/img/anas.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                        <span>Welcome,</span>
-                        
+                        <span>Welcome,<br></span>
+                            <span style="color:white"><?= Yii::$app->user->identity->username ?></span><br>
                         <span style="color:#0DC143">* Online</span>
                     </div>
                 </div>
@@ -87,55 +87,55 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                             ["label" => "Add Advocates", "url" => "index.php?r=advocates/create"],
                                         ],
                                     ],
-                                    [
-                                        "label" => "Badges",
-                                        "url" => "#",
-                                        "icon" => "table",
-                                        "items" => [
-                                            [
-                                                "label" => "Default",
-                                                "url" => "#",
-                                                "badge" => "123",
-                                            ],
-                                            [
-                                                "label" => "Success",
-                                                "url" => "#",
-                                                "badge" => "new",
-                                                "badgeOptions" => ["class" => "label-success"],
-                                            ],
-                                            [
-                                                "label" => "Danger",
-                                                "url" => "#",
-                                                "badge" => "!",
-                                                "badgeOptions" => ["class" => "label-danger"],
-                                            ],
-                                        ],
-                                    ],
-                                    [
-                                        "label" => "Multilevel",
-                                        "url" => "#",
-                                        "icon" => "table",
-                                        "items" => [
-                                            [
-                                                "label" => "Second level 1",
-                                                "url" => "#",
-                                            ],
-                                            [
-                                                "label" => "Second level 2",
-                                                "url" => "#",
-                                                "items" => [
-                                                    [
-                                                        "label" => "Third level 1",
-                                                        "url" => "#",
-                                                    ],
-                                                    [
-                                                        "label" => "Third level 2",
-                                                        "url" => "#",
-                                                    ],
-                                                ],
-                                            ],
-                                        ],
-                                    ],
+                                    // [
+                                    //     "label" => "Badges",
+                                    //     "url" => "#",
+                                    //     "icon" => "table",
+                                    //     "items" => [
+                                    //         [
+                                    //             "label" => "Default",
+                                    //             "url" => "#",
+                                    //             "badge" => "123",
+                                    //         ],
+                                    //         [
+                                    //             "label" => "Success",
+                                    //             "url" => "#",
+                                    //             "badge" => "new",
+                                    //             "badgeOptions" => ["class" => "label-success"],
+                                    //         ],
+                                    //         [
+                                    //             "label" => "Danger",
+                                    //             "url" => "#",
+                                    //             "badge" => "!",
+                                    //             "badgeOptions" => ["class" => "label-danger"],
+                                    //         ],
+                                    //     ],
+                                    // ],
+                                    // [
+                                    //     "label" => "Multilevel",
+                                    //     "url" => "#",
+                                    //     "icon" => "table",
+                                    //     "items" => [
+                                    //         [
+                                    //             "label" => "Second level 1",
+                                    //             "url" => "#",
+                                    //         ],
+                                    //         [
+                                    //             "label" => "Second level 2",
+                                    //             "url" => "#",
+                                    //             "items" => [
+                                    //                 [
+                                    //                     "label" => "Third level 1",
+                                    //                     "url" => "#",
+                                    //                 ],
+                                    //                 [
+                                    //                     "label" => "Third level 2",
+                                    //                     "url" => "#",
+                                    //                 ],
+                                    //             ],
+                                    //         ],
+                                    //     ],
+                                    // ],
                                 ],
                             ]
                         )
@@ -183,12 +183,12 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="index.php">Home</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="javascript:;">
                                         <span class="badge bg-red pull-right">50%</span>
                                         <span>Settings</span>
                                     </a>
-                                </li>
+                                </li> -->
                                <!--  <li><a href="index.php?r=site/login"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </li> -->
 
@@ -227,7 +227,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
 
 
 
-                        <li role="presentation" class="dropdown">
+                        <!-- <li role="presentation" class="dropdown">
                             <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="badge bg-green">6</span>
@@ -298,7 +298,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
                                     </div>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 
                     </ul>
                 </nav>
@@ -343,7 +343,7 @@ $bundle = yiister\gentelella\assets\Asset::register($this);
         <!-- footer content -->
         <footer class="footer">
             <div class="container">
-                <p align="center">Copyright &copy All rights reserved, Powered By:<a href="http://www.dexdevs.com" target="_blank" style="color:#449D44"><b>DEXDEVS</b></a>
+                <p align="center">Copyright &copy All Rights Reserved, Powered By:<a href="http://www.dexdevs.com" target="_blank" style="color:#449D44"><b>DEXDEVS</b></a>
                 </p>
             </div>
         </footer>
